@@ -1,5 +1,12 @@
 spring:
-  application.name: video-rental-store
+  application.name: "video-rental-store"
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/nepokor-db"
+    username: "revan"
+    password: "starwars"
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 logging.config: "classpath:logback.xml"
 

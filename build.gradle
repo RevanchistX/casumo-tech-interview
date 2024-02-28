@@ -3,6 +3,9 @@ buildscript {
         springBootVersion = '3.2.2'
         springDependencyManagementVersion = '1.1.4'
     }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 plugins {
@@ -37,6 +40,12 @@ dependencies {
 
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:3.2.2"
+    implementation "org.postgresql:postgresql"
+    implementation "com.mysql:mysql-connector-j"
+    implementation "org.projectlombok:lombok"
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 testing {
@@ -60,6 +69,12 @@ testing {
 //as found on https://stackoverflow.com/a/45105685/2355642
 task testPreview(type: Exec){
     dependsOn 'test'
+    workingDir './build/reports/tests/test'
+    commandLine 'cmd', '/c', 'start index.html'
+}
+
+task buildPreview(type: Exec){
+    dependsOn 'build'
     workingDir './build/reports/tests/test'
     commandLine 'cmd', '/c', 'start index.html'
 }
