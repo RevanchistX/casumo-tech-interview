@@ -54,3 +54,12 @@ testing {
         }
     }
 }
+
+
+
+//as found on https://stackoverflow.com/a/45105685/2355642
+task testPreview(type: Exec){
+    dependsOn 'test'
+    workingDir './build/reports/tests/test'
+    commandLine 'cmd', '/c', 'start index.html'
+}
