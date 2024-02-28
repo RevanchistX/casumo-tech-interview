@@ -11,5 +11,5 @@ The application is built using Gradle, via the included wrapper (`gradlew`).
 
 - To build the application, use `gradlew clean build`
 - Any tests that you add under the ``src/test`` folder can be run using `gradlew clean test`
-- > Example: [SampleTest](src/test/java/com/casumo/videorental/SampleTest.java)
+> Example: [SampleTest](src/test/java/com/casumo/videorental/SampleTest.java)
 - To run the application, use `gradlew bootRun`
