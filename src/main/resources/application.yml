@@ -1,9 +1,9 @@
 spring:
   application.name: "video-rental-store"
   datasource:
-    url: "jdbc:postgresql://localhost:5432/nepokor-db"
-    username: "revan"
-    password: "starwars"
+    url: "jdbc:postgresql://localhost:5432/casumo-db"
+    username: "casumo"
+    password: "casumo"
   jpa:
     hibernate:
       ddl-auto: update

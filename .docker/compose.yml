@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: casumo-db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: casumo-db
+      POSTGRES_USER: casumo
+      POSTGRES_PASSWORD: casumo
+    volumes:
+      - casumo-db:/var/lib/postgresql/data
+    networks:
+      - casumo-network
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pg-admin
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: default@casumo.com
+      PGADMIN_DEFAULT_PASSWORD: casumo
+    ports:
+      - 5050:80
+    volumes:
+      - casumo-pg:/var/lib/pgadmin
+    networks:
+      - casumo-network
+networks:
+  casumo-network:
+    name: casumo-network
+    driver: bridge
+volumes:
+  casumo-db:
+    name: casumo-db
+  casumo-pg:
+    name: casumo-pg

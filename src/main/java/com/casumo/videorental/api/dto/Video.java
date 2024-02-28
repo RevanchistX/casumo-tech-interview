@@ -1,14 +1,26 @@
 package com.casumo.videorental.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.casumo.videorental.api.dto.enums.ReleaseType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.*;
 
-//@Entity
+@Setter
+@Getter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Table(name = "video")
 public class Video {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String name;
+
+    private ReleaseType type;
+
+
 }
